@@ -1,3 +1,1 @@
-Przemyslaw Ziaja - laboratoria
-test
-
+Przemyslaw Ziaja - laboratoria SO
