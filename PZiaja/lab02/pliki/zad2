@@ -1,0 +1,6 @@
+1. Czy w momencie powrotu z funkcji write dane są już zapisane na urządzenie wyjściowe?
+	Nie, system nie musi od razu wrzucić danych na np. dysk, może trzymać je w buforze i zapisywać, a program będzie kontynuowany.
+
+2.Co robi ta funkcja? Jakiej sytuacji dotyczy wartość EINTR?
+	Wpisuje dane z o długości nbyte z bufora do pliku otwartego przy pomocy deskryptora fd.
+	EINTR - kod błędu przechowywany w errno, stosowany do oznaczenia przrwania wywołania funkcji.

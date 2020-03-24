@@ -1,0 +1,27 @@
+1. Co to są deskryptory plików?
+	Jest to identyfikator pliku używany przez system operacyjny (w POSIX typ całkowity(int)).
+	Po otwarciu pliku może być wykorzystywany wielokrotnie przez system operacyjny.
+
+2. Jakie są standardowe deskryptory otwierane dla procesów? 
+	0 - STDIN
+	1 - STDOUT
+	2 - STDERR
+
+3. Jakie flagi trzeba ustawić w funkcji open aby otrzymać funkcjonalność funkcji creat?
+	O_CREAT
+
+4. W wyniku wykonania polecenia umask otrzymano 0022. Jakie prawa dostępu będzie miał plik otwarty w następujący sposób:
+open(pathname, O_RDWR | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO)
+	755 ponieważ komenda chce założyć plik z prawami 777 ale dodajemy do tego XOR maski i wychodzi 755
+
+5. 6. 7.
+Co oznaczają flagi: O_WRONLY | O_CREAT | O_TRUNC?
+Co oznacza flaga O_APPEND?
+Co oznacza zapis: S_IRUSR | S_IWUSR?
+	O_WRONLY - WRite only
+	O_CREAT - Utwórz plik jeżeli nie istnieje
+	O_TRUNC - Jeżeli plik istnieje to zmniejsz jego długość do 0 (takie zapisz jako)
+	S_IRUSR - Read USeR - prawo do odczytu dla użytkownika 
+	S_IWUSR - Write USeR - prawo do zapisu dla użytkownika
+
+
