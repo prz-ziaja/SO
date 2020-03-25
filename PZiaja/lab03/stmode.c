@@ -9,7 +9,7 @@ int main(int argc, char** argv){
 	struct stat finfo;
 	fstat(t,&finfo);
 	fprintf(stdout,"%ld\n",finfo.st_size);
-	if ((S_IFMT & S_IFREG) == S_IFREG) { 
+	if ((S_IFSOCK & S_IFREG) == S_IFREG) { 
 		fprintf(stdout,"ok\n");
 	}
 }
