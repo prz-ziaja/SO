@@ -1,0 +1,6 @@
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie4/build/CMakeFiles/rebuild_cache.dir
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie4/build/CMakeFiles/copy.dir
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie4/build/CMakeFiles/edit_cache.dir
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie4/build/time/CMakeFiles/rebuild_cache.dir
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie4/build/time/CMakeFiles/Time.dir
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie4/build/time/CMakeFiles/edit_cache.dir

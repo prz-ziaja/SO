@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/myTail.dir/tail.c.o  -o myTail 

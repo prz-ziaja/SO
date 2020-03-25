@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../time/t.h
+
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie4/copy3.c
+fcntl.h
+-
+unistd.h
+-
+stdio.h
+-
+errno.h
+-
+string.h
+-
+t.h
+-
+

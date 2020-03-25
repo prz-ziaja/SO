@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/krzys/Pulpit/zajecia/lab2/copy1.c
+fcntl.h
+-
+unistd.h
+-
+stdio.h
+-
+errno.h
+-
+string.h
+-
+

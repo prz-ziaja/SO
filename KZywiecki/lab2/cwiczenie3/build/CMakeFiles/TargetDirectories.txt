@@ -1,0 +1,5 @@
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie3/build/CMakeFiles/rebuild_cache.dir
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie3/build/CMakeFiles/edit_cache.dir
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie3/build/CMakeFiles/myTail.dir
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie3/build/CMakeFiles/testOffset.dir
+/home/krzys/Pulpit/zajecia/lab2/cwiczenie3/build/CMakeFiles/backward.dir

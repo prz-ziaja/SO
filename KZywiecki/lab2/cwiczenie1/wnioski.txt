@@ -1,0 +1,22 @@
+Ćwiczenie 1
+Deskryptor pliku jest liczbą identyfikującą otwarty
+plik i służącą do operowania na nim
+
+Proces przy uruchomieniu otwiera pliki reprezentujące
+wyjście błędów, wyjście i wejście z konsoli, reprezentowane przez 0, 1, 2
+
+Trzeba użyć flagi O_CREAT
+
+Plik będzie miał prawa 777 & ~022, więc 755 
+
+O_WRONLY: otwarcie pliku dla zapisu
+O_CREAT: Tworzy plik, jeśli ten nie istnieje
+O_TRUNC: Usuwa zawartość pliku jeśli ustawimy dostęp na r/rw
+
+O_APPEND: Otwiera plik w trybie dopisywania
+
+Jest to tryb utworzenia pliku z prawami zapisu i odczytu dla użytkownika
+
+Ćwiczenie 2
+
+

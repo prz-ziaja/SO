@@ -1,0 +1,3 @@
+/home/krzys/Pulpit/zajecia/lab3/cwiczenie1/build/CMakeFiles/rebuild_cache.dir
+/home/krzys/Pulpit/zajecia/lab3/cwiczenie1/build/CMakeFiles/stat_info.dir
+/home/krzys/Pulpit/zajecia/lab3/cwiczenie1/build/CMakeFiles/edit_cache.dir
