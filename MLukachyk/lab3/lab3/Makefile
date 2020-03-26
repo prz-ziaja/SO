@@ -1,6 +1,7 @@
 stat_info:
-	gcc -o file stat_info.c
-	./file stat_info.c
+	gcc -o stat_info stat_info.c
+	./data data
+
 clean:
 	rm -f *.o
 	rm -f *~
