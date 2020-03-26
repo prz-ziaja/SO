@@ -1,3 +1,0 @@
-/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/cmake-build-debug/CMakeFiles/SO_lab2.dir
