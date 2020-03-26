@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/backward.c
+
+/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/cat.c
+
+/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/copy1.c
+
+/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/copy2.c
+
+/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/copy3.c
+t.h
+/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/t.h
+fcntl.h
+-
+unistd.h
+-
+stdio.h
+-
+errno.h
+-
+stdlib.h
+-
+
+/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/pread.c
+
+/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/t.h
+
+/Users/marinalukacik/Desktop/study/SEMESTR#4/OS/SO_lab2/tail.c
+
