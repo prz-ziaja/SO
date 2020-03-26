@@ -1,0 +1,31 @@
+1. Dwa deskryptory: fd1 i fd2 użyto do otwarcia pliku podając tę samę ścieżkę dostępu do pliku. Wskaźnik pliku ustawiony jest na początku pliku. Następnie korzystając z deskryptora fd1 wykonano operację zapisania 100b do pliku. Następnie przy użyciu deskryptora fd2 wykonano operację czytania z pliku. Pytanie: Na jakiej pozycji jest wskaźnik pliku? Jakie dane odczytano przy użyciu fd2?
+	Wskaznik pliku jest na ostatniej zapisanej pozycji. Odczytano pusty string (dołączam zrzuty z python3). Aby cokolwiek odczytać z pliku musiałem ustawić deskryptor, który zapisywał dane do pozycji 0 i wtedy mogłem odczytać plik. W przypadku ustawiania pozycji 0 na deskryptorze czytającym cały czas zwracał pusty string.
+
+2. Do otwarcia pliku użyto jednego deskryptora fd3. Następnie wykonano kolejno operację pisania 100b i czytania 100b. Na jakiej pozycji jest wskaźnik pliku? Co zostało przeczytane?
+	Jezeli plik istnial wczesniej to zostanie przeczytana reszta pliku, jezeli tworzymy go dopiero to zostanie przeczytany pusty string.(screeny)
+
+3. Czy każdorazowe poprzedzenie operacji pisania ustawieniem wskaźnika pliku na końcu pliku za pomocą funkcji lseek daje taki sam rezultat jak otwarcie pliku w trybie z ustawioną flagą O_APPEND? Odpowiedź uzasadnij.
+	"If the O_APPEND file status flag is set on the open file description,
+	then a write(2) always moves the file offset to the end of the file,
+	regardless of the use of lseek()."
+	 ~ manual
+
+	"O_APPEND guarantees that every write to the file will be at the end of the
+	file. lseek guarantees that the file pointer is positioned to the current EOF of
+	the file. It does not guarantee that subsequent writes will be at the end of the
+	file." 
+	~ jim mcnamara https://www.unix.com/programming/203467-what-main-difference-between-difference-between-using-nonatomic-lseek-o_append.html
+	Czyli
+	O_APPEND - koniec pliku
+	lseek - koniec pliku podczas edytowania
+
+4.Jak wygląda wywołanie funkcji lseek które:
+   ustawia wskaźnik na zadanej pozycji?
+   znajduje koniec pliku?
+   zwraca bieżącą pozycję wskaźnika?
+
+	lseek(deksryptor, pozycja, 0);
+
+	lseek(desktyptor, 0L, 2);
+
+	lseek(dekstyptor,0L,1);

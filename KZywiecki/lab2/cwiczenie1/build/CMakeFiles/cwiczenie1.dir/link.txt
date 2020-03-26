@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/cwiczenie1.dir/copy1.c.o  -o cwiczenie1 

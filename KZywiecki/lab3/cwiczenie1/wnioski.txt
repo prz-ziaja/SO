@@ -1,0 +1,22 @@
+Funkcja stat generuje strukturę stat zawierającą informacje
+o pliku. Lstat działa podobnie, ale jeśli wskazany plik
+jest dowiązaniem symbolicznym, to zostaną pobrane informacje
+na temat dowiązania, a nie pliku. Fstat działa jak stat,
+ale przyjmuje w argumencie deskryptor pliku.
+
+Flaga S_IFMT jest używana jako maska bitowa. Flaga mode
+przechowuje informacje o pliku, głównie jego typie i 
+uprawnieniach. S_IFMT ma jedynki w miejscach gdzie są
+informacje o typie pliku
+
+if ((sb.st_mode & S_IFBLK) == S_IFBLK) {/* plik jest urządzeniem blokowym */} 
+Do urządzenia blokowego taka metoda nie jest koniecznie zła. 
+Urządzenie blokowe zostanie znalezione poprawnie, gdyż 
+jego maska nie zawiera się w innej masce. Znalezienie 
+folderu będzie bardziej problematyczne, bo jego maska zawiera się
+w masce urządzenia blokowego, więc taki test traktowałby 
+urządzenie blokowe jako folder.
+Ale urządzenie blokowe jest spoko
+
+
+

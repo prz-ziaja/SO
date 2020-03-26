@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/stat_info.dir/stat_info.c.o  -o stat_info 

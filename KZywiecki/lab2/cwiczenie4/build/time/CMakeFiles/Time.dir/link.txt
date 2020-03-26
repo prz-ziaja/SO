@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTime.a  CMakeFiles/Time.dir/t.c.o
+/usr/bin/ranlib libTime.a

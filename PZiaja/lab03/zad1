@@ -1,0 +1,23 @@
+Proszę przejrzeć manual do funkcji z rodziny stat(2). Czym różnią się te funkcje?
+	stat() - pobiera informacje o pliku wskazanym przez scieżkę, ważne aby mieć prawa do wykonywania (eXecute) do folderów w scieżce do pliku, prawa dostępu do pliku nie są wymagane
+	lstat() - jak wyżej, ale gdy scieżka prowadzi do dowiązania symbolicznego, to funkcja zwraca informacje o dowiązaniu, a nie o pliku
+	fstat() - tak samo jak w przypadku stat(), ale podajemy deskryptor pliku zamiast ścieżki
+
+Co reprezentuje flaga S_IFMT zdefiniowana dla pola st_mode?
+	Jest to maska bitowa (0170000) dla pola bitowego typu pliku.
+
+Zmienna sb jest wypełnioną strukturą typu struct stat. Czy można sprawdzić typ pliku (np. czy plik jest urządzeniem blokowym) w następujący sposób?
+if ((sb.st_mode & S_IFBLK) == S_IFBLK) {/* plik jest urządzeniem blokowym */} 
+Odpowiedź uzasadnij.
+	Nie, nie można. Załóżmy że plik jest gniazdem. Chcemy sprawdzić czy jest plikiem regularnym. Zatem piszemy:
+	if ((sb.st_mode & S_IFREG) == S_IFREG) { 
+		fprintf(stdout,"ok\n");
+	}
+	Skoro wiemy, że plik jest gniazdem to możemy kod przerobić do postaci:
+	if ((S_IFSOCK & S_IFREG) == S_IFREG) { 
+		fprintf(stdout,"ok\n");
+	}
+	W rezultacie wyskoczy nam 'ok', co nie powinno nastąpić ponieważ pliki są różnych typów. S_IFREG użyliśmy jako maski, dobrze się spisała usuwając bity odpowiedzialne za pola dostępu, ale jednocześnie usunęła znaczące bity. Analogicznie wygląda to w przypadku S_IFBLK. Poprawnie:
+	if ((sb.st_mode & S_IFMT) == Odpowiednia_Flaga) { 
+		fprintf(stdout,"ok\n");
+	}

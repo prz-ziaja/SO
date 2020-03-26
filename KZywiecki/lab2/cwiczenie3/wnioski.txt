@@ -1,0 +1,11 @@
+Wychodzi na to że oba deskryptory mają własne wskaźniki do pliku.
+Po otwarciu pliku a następnie zapisaniu danych przy użyciu
+pierwszego deskryptora, ten drugi nadal wskazuje na początek
+
+Wygląda na to że operacje czytania i wpisywania mają wspólny
+wskaźnik na zawartość pliku. Po wpisaniu danych znajduje się
+on na końcu, więc nic nie zostanie wczytane.
+
+Rezultat takiego działania jest taki sam jak przy użyciu 
+flagi O_APPEND. Jest to napisane w instrukcji operacji open.
+Próbny program faktycznie daje rezultat jak przy użyciu APPEND.

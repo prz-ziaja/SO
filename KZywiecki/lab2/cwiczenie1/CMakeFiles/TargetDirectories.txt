@@ -1,0 +1,2 @@
+/home/krzys/Pulpit/zajecia/lab2/CMakeFiles/rebuild_cache.dir
+/home/krzys/Pulpit/zajecia/lab2/CMakeFiles/edit_cache.dir

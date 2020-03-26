@@ -1,0 +1,5 @@
+Szybkość wykonania kopiowania w copy2 zależy silnie od 
+rozmiarów bufora znaków. W wypadku bufora rozmiarów około
+1000 szybkości się niemal zrównują. Im większy bufor, tym
+szybsze kopiowanie. W wypadku buforów rozmiarów bliskich 1
+kopiowanie pliku 16MB może trwać kilkanaście sekund.

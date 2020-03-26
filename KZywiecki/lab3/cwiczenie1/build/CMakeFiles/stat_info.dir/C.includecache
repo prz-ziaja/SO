@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/krzys/Pulpit/zajecia/lab3/cwiczenie1/stat_info.c
+sys/types.h
+-
+sys/stat.h
+-
+time.h
+-
+pwd.h
+-
+aio.h
+-
+unistd.h
+-
+fcntl.h
+-
+grp.h
+-
+stdio.h
+-
+stdlib.h
+-
+libgen.h
+-
+string.h
+-
+errno.h
+-
+

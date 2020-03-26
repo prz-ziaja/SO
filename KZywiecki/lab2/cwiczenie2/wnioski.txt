@@ -1,0 +1,9 @@
+Powrót z funkcji write nie daje gwarancji że dane zostały
+faktycznie zapisane na urządzeniu
+
+Funkcja writeall wpisuje n bajtów z bufora buf do pliku o zadanym deskryptorze
+EINTR oznacza że został podniesiony jakiś sygnał w trakcie wywołania
+funkcji write. Mogłoby to być żądanie zatrzymania programu, albo
+użycie terminala przez inny proces działający w tle.
+
+
