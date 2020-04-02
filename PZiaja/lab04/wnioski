@@ -1,0 +1,8 @@
+Przemysław Ziaja 303187
+Dlaczego znak zachęty nie wyświetla się dopiero po wykonaniu procesu?
+	Ponieważ proces rodzica nie czeka na zakończenie procesu dziecka.
+
+Po uruchomieniu powłoki spróbuj uruchomić polecenie, które nie istnieje wpisując np. werwersdd. Następnie wpisz polecenie exit.
+Co się stało? Dlaczego polecenie nie działa poprawnie? Jak naprawić ten błąd?
+	W przypadku błędu zforkowany proces nie kończył się, trzeba było dodać exit.
+
