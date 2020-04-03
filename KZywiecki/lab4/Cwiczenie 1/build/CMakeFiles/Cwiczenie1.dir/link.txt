@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/Cwiczenie1.dir/funcs.c.o CMakeFiles/Cwiczenie1.dir/shell.c.o  -o Cwiczenie1 
