@@ -18,6 +18,7 @@
 #define CONJOR 1     /* or operator || */
 #define CONJAND 2    /* and operator && */
 #define MAXCMD 4096
+#define MAX_COMMANDS 128
 #define RESERROR 0
 #define RESSUCCESS 1
 /* -------------------------------------------------------------------------------------- */

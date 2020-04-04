@@ -5,7 +5,7 @@ int main(void)
 {
   int res;
   char cmd[MAXCMD];
-  struct cmdlist cmds;
+  struct cmdlist cmds[MAX_COMMANDS];
 
   /* setting up the initial values of the structure  */
   /* this should be done every time when new object is created */
@@ -24,15 +24,32 @@ int main(void)
   while(1){
     printprompt();
     if(readcmd(cmd, MAXCMD) == RESERROR) continue;
-    res = parsecmd(cmd, MAXCMD, &cmds);
-    /* printparsedcmds(&cmds); */
-    int result = executecmds(&cmds);
-    dealocate(&cmds);
+    res = parsecmd(cmd, MAXCMD, cmds);
+    printparsedcmds(cmds);
+    int result = -1;
+    struct cmdlist* iterator = cmds;
+    int previousOp = -1;
+    while(iterator != NULL)
+    {
+      if(previousOp == CONJOR && result == 0)
+      {
+      }
+      else
+      {
+        result = executecmds(iterator);
+        if(result == -2)
+        {
+          break;
+        }
+      }
+      previousOp = iterator->conjuction;
+      iterator = iterator->next;
+    }
+    dealocate(cmds);
     if(result == -2)
     {
       break;
     }
-    printf("Result: %d", result);   
   }
 
   return 0;
@@ -44,6 +61,7 @@ void setupnewcommand(struct cmdlist* __cmd)
 {
   if(__cmd == NULL)
     return;
+  memset(__cmd, 0, sizeof(struct cmdlist)*MAX_COMMANDS);
 
   __cmd->next = NULL;           /* in order to know where is the end of the list */
   __cmd->argv = NULL;           /* see realloc(3) */
@@ -100,11 +118,6 @@ int readcmd(char* __buf, int __bufsize)
 }
 /* -------------------------------------------------------------------------------------- */
 
-#define CHAIN_LENGTH 128
-
-
-
-
 /* 3. Parsing this command */
 int parsecmd(char* __buf, int __bufsize, struct cmdlist* __head)
 {
@@ -114,16 +127,33 @@ int parsecmd(char* __buf, int __bufsize, struct cmdlist* __head)
 
   /* Reading next word - read strtok(3)  */
   while((word = strtok(cmd, " \t\n")) != NULL){ 
-    curr->argc++;
-    curr->argv = (char**)realloc(curr->argv, sizeof(char*)*curr->argc);   /* memory reallocation - needed for new argument  */
-    if(curr->argv == NULL){
-      printf("Error while allocating memory!");
-      return RESERROR;
+    if(strcmp(word, "||") == 0)
+    {
+      curr->conjuction = CONJOR;
+      curr->next = curr + 1;
+      curr ++;
     }
-    curr->argv[curr->argc-1] = word;                                      /* Storing new argument in the argument vector in our structure */
-    cmd = NULL;
+    else if(strcmp(word, "&&") == 0)
+    {
+      curr->conjuction = CONJAND;
+      curr->next = curr + 1;
+      curr ++;
+    }
+    else
+    {
+      curr->argc++;
+      curr->argv = (char**)realloc(curr->argv, sizeof(char*)*curr->argc);   /* memory reallocation - needed for new argument  */
+      if(curr->argv == NULL){
+        printf("Error while allocating memory!");
+        return RESERROR;
+      }
+      curr->argv[curr->argc-1] = word;                                      /* Storing new argument in the argument vector in our structure */
+      cmd = NULL;
+    }
+    
   }
-
+  curr->conjuction = CONJUD;
+  curr->next = NULL;
   /* Setting up parsed command -- the NULL pointer at the end of the parameters list must added  */
   if(setupparsedcommand(curr) == RESERROR){                               
     printf("Error while setting up parsed command.");
@@ -146,25 +176,22 @@ int executecmds(struct cmdlist* __head)
 
   int status;
 
-  while(curr != NULL){
     f = fork();
     e = errno;
 
-    if(f == 0){
-      execvp(curr->argv[0], curr->argv);
-      e = errno;
-      printf("Error while executing: %s\n", strerror(e));
-      _exit(-1);
-    }
-    if(f == -1){
-      printf("Fork error: %s\n", strerror(e));
-      return -1;
-    }
-    if(f > 0)
-    {
-      waitpid(f, &status, 0);
-    }
-    curr = curr->next;
+  if(f == 0){
+    execvp(curr->argv[0], curr->argv);
+    e = errno;
+    printf("Error while executing: %s\n", strerror(e));
+    _exit(-1);
+  }
+  if(f == -1){
+    printf("Fork error: %s\n", strerror(e));
+    return -1;
+  }
+  if(f > 0)
+  {
+    waitpid(f, &status, 0);
   }
   status = status != 0 ? -1 : 0;
   return status;
