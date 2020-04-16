@@ -1,0 +1,50 @@
+
+-----------------------1-----------------------
+
+-1-
+ Deskryptor to identyfikator otwartego pliku , przydzielony do określonego procesu. Jest on liczbą całkowitą (typu int z C). Jest używany przez wywołania systemowe, takie jak open(), write(), read() czy close(). 
+----------------------------------------------
+Proces po uruchomieniu ma od razu 3 deskryptory, przypisane do standardowych strumieni – 0 dla standardowego wejścia, 1 dla standardowego wyjścia i 2 dla standardowego wyjścia błędów. 
+----------------------------------------------
+ O_CREAT|O_WRONLY|O_TRUNC 
+----------------------------------------------
+755 
+----------------------------------------------
+O_WRONLY - tylko do zapisu
+O_CREAT - towrzy plik jeśli nie istnieje
+O_TRUNC - obcina plik jeśli ten już istnieje
+----------------------------------------------
+O_APPEND -poczatkowo oraz przed kazdym pisaniem wskaznik do pliku bedzie ustawiany na jego koncu
+----------------------------------------------
+Właściciel pliku może go czytać i zapisywać.
+
+-3-
+
+
+
+-----------------------2-----------------------
+
+-1-
+System decyduje sam kiedy zapisze dane
+-3-
+Zapisuje dane z bufora do pliku
+EINTR- kod błedu przerwania wywołania funkcji
+
+
+-----------------------3-----------------------
+
+-1-
+Wskaźnik jest za nowo zapisanymi danymi, fd2 nie przeczyta nic.
+
+-2-
+Przeczytana zostaje reszta pliku a wskaźnik jest za przeczytanymi danymi .
+
+-3- 
+Nie do końca O_APPEND zapewnia pozycje wskaźnika na końcu pliku a lseek koniec pliku ale w czasie edytowana, różnice mogą pojawić się w czasie używania np. wątków.
+
+-4-
+Iseek(fd, offset, 0);
+Iseek(fd, 0L, 2);
+Iseek(fd, 0L, 1);
+
+
