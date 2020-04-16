@@ -1,0 +1,4 @@
+Przypomnij sobie różnice między procesem a wątkiem
+	Wątki współdzielą między sobą zasoby w przeciwieństwie do procesów. Wątki są uruchamiane w ramach jednego procesu.
+
+
