@@ -17,7 +17,7 @@ int main(void) {
     pid = fork();
 
     if (pid == 0) {
-        close(STDIN_FILENO); /* zamykamy 0,  bo dup go pozniej uzyje jako najnizszego */
+        close(STDIN_FILENO);
         dup2(pfd[0], STDIN_FILENO);
         close(pfd[1]);
         close(pfd[0]);
