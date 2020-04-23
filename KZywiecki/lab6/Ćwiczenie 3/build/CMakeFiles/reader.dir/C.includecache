@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/reader.c
+stdio.h
+-
+unistd.h
+-
+string.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+stdlib.h
+/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/stdlib.h
+

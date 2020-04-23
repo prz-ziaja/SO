@@ -1,0 +1,30 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{times}
+\usepackage{anysize}
+
+\title{Laboratoria 6}
+\author{Krzysztof Żywiecki}
+
+\begin{document}
+
+\maketitle
+
+\section*{Ćwiczenie 1}
+
+W ćwiczeniu pokazany jest przykład zastosowania funkcji pipe do ustalenia komunikacji między procesami. W przykładowym programie następuje zapis, a następnie odczyt danych z pośrednika. Po użyciu funkcji fork trzeba zamknąć w procesach odpowiednie deskryptory. Strona zapisująca oszczędza w ten sposób alokacje. Strona odczytująca z kolei musi zamknąć swój pipe do zapisu, gdyż przeciwna strona musi po skończeniu zapisu zasygnalizować EOF, co nie jest możliwe jak istnieje kilka zapisujących stron.
+
+Funkcja \emph{fpathconf} dostarcza nam wielu informacji na temat ograniczeń systemu. Wielkość bufora określa ile bajtów może zostać wpisanych do \emph{pipe}
+
+\section*{Ćwiczenie 2}
+Program demonstracyjny w bardzo sprytny sposób łączy \emph{pipe[0]} z wejściem standardowym do procesu. Funkcja \emph{dup} tworzy kopię deskryptora na najniższy możliwy indeks. Po wykonaniu \emph{close(0)} jest to właśnie standardowe wejście. W programie dodano zamykanie deskryptorów: 0 w wątku rodzica, oraz 1 w wątku potomnym jak w poprzednim zadaniu. Dodatkowo po wykonaniu \emph{dup} można zwolnić w wątku potomnym deskryptor 0.
+
+\section*{Ćwiczenie 3}
+Aktualnie jeszcze w trakcie
+
+
+\end{document}

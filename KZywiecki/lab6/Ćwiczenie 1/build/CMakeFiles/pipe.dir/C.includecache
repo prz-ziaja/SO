@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 1/pipe.c
+stdio.h
+-
+unistd.h
+-
+string.h
+-
+
