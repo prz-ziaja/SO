@@ -1,9 +1,0 @@
-=========== Sprawozdanie 4 ==========
-======= Adam Klekowski (303119) =====
-1) Dlaczego znak zachęty nie wyświetla się dopiero po wykonaniu procesu?
-	Ponieważ funkcja executecmds tworzy wątek, który następnie zostaje oddzielony od wątku głównego. Proces rodzica nie czeka na zakończenie procesu dziecka.
-
-2) Po uruchomieniu powłoki spróbuj uruchomić polecenie, które nie istnieje wpisując np. werwersdd. Następnie wpisz polecenie exit.
-Co się stało? Dlaczego polecenie nie działa poprawnie? Jak naprawić ten błąd?
-	W przypadku błędu nowo utwrozny proces nie kończył się. Konieczne było dodanie kolejnego exit, aby program działał poprawnie.
-
