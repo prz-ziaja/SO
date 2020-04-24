@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/pipe.dir/pipe.c.o  -o pipe 

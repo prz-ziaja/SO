@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/seq.c
+stdio.h
+-
+unistd.h
+-
+string.h
+-
+stdlib.h
+-
+

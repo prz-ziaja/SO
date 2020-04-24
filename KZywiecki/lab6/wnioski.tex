@@ -24,7 +24,15 @@ Funkcja \emph{fpathconf} dostarcza nam wielu informacji na temat ograniczeń sys
 Program demonstracyjny w bardzo sprytny sposób łączy \emph{pipe[0]} z wejściem standardowym do procesu. Funkcja \emph{dup} tworzy kopię deskryptora na najniższy możliwy indeks. Po wykonaniu \emph{close(0)} jest to właśnie standardowe wejście. W programie dodano zamykanie deskryptorów: 0 w wątku rodzica, oraz 1 w wątku potomnym jak w poprzednim zadaniu. Dodatkowo po wykonaniu \emph{dup} można zwolnić w wątku potomnym deskryptor 0.
 
 \section*{Ćwiczenie 3}
-Aktualnie jeszcze w trakcie
+//Dokończone w piątek
+
+W zadaniu mamy do wykonania 3 programy.
+
+Pierwszy wymaga do stworzenia dwóch procesów potomnych wraz z metodami komunikacji między nimi. Proces główny wczytuje całość pliku i przekazuje go do potomnych procesów. Te odczytują tekst linijka po linijce, i liczą odpowiednio linijki.
+
+Drugi program tworzy dwa procesy potomne. Pierwszy z procesów wykonuje proces seq z odpowiednimi argumentami. Drugi z nich odczytuje kolejne liczby i wysyła je przemnożone przez 5 do procesu głównego .
+
+Trzeci program wykonuje po kolei 4 procesy: wczytujący nazwy użytkowników, obcinający je do nazwy użytkownika, sortujący je alfabetycznie i biorący tylko unikatowe wartości.
 
 
 \end{document}

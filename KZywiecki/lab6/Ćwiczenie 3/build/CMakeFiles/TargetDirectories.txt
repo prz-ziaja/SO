@@ -1,3 +1,5 @@
 /home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles/rebuild_cache.dir
-/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles/reader.dir
 /home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles/edit_cache.dir
+/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles/pipe.dir
+/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles/read.dir
+/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles/seq.dir

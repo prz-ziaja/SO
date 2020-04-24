@@ -65,39 +65,113 @@ CMAKE_SOURCE_DIR = "/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3"
 CMAKE_BINARY_DIR = "/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build"
 
 #=============================================================================
-# Target rules for target CMakeFiles/reader.dir
+# Target rules for target CMakeFiles/pipe.dir
 
 # All Build rule for target.
-CMakeFiles/reader.dir/all:
-	$(MAKE) -f CMakeFiles/reader.dir/build.make CMakeFiles/reader.dir/depend
-	$(MAKE) -f CMakeFiles/reader.dir/build.make CMakeFiles/reader.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" --progress-num=1,2 "Built target reader"
-.PHONY : CMakeFiles/reader.dir/all
+CMakeFiles/pipe.dir/all:
+	$(MAKE) -f CMakeFiles/pipe.dir/build.make CMakeFiles/pipe.dir/depend
+	$(MAKE) -f CMakeFiles/pipe.dir/build.make CMakeFiles/pipe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" --progress-num=1,2 "Built target pipe"
+.PHONY : CMakeFiles/pipe.dir/all
 
 # Include target in all.
-all: CMakeFiles/reader.dir/all
+all: CMakeFiles/pipe.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/reader.dir/rule: cmake_check_build_system
+CMakeFiles/pipe.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/reader.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/pipe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" 0
-.PHONY : CMakeFiles/reader.dir/rule
+.PHONY : CMakeFiles/pipe.dir/rule
 
 # Convenience name for target.
-reader: CMakeFiles/reader.dir/rule
+pipe: CMakeFiles/pipe.dir/rule
 
-.PHONY : reader
-
-# clean rule for target.
-CMakeFiles/reader.dir/clean:
-	$(MAKE) -f CMakeFiles/reader.dir/build.make CMakeFiles/reader.dir/clean
-.PHONY : CMakeFiles/reader.dir/clean
+.PHONY : pipe
 
 # clean rule for target.
-clean: CMakeFiles/reader.dir/clean
+CMakeFiles/pipe.dir/clean:
+	$(MAKE) -f CMakeFiles/pipe.dir/build.make CMakeFiles/pipe.dir/clean
+.PHONY : CMakeFiles/pipe.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/pipe.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/read.dir
+
+# All Build rule for target.
+CMakeFiles/read.dir/all:
+	$(MAKE) -f CMakeFiles/read.dir/build.make CMakeFiles/read.dir/depend
+	$(MAKE) -f CMakeFiles/read.dir/build.make CMakeFiles/read.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" --progress-num=3,4 "Built target read"
+.PHONY : CMakeFiles/read.dir/all
+
+# Include target in all.
+all: CMakeFiles/read.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/read.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/read.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" 0
+.PHONY : CMakeFiles/read.dir/rule
+
+# Convenience name for target.
+read: CMakeFiles/read.dir/rule
+
+.PHONY : read
+
+# clean rule for target.
+CMakeFiles/read.dir/clean:
+	$(MAKE) -f CMakeFiles/read.dir/build.make CMakeFiles/read.dir/clean
+.PHONY : CMakeFiles/read.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/read.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/seq.dir
+
+# All Build rule for target.
+CMakeFiles/seq.dir/all:
+	$(MAKE) -f CMakeFiles/seq.dir/build.make CMakeFiles/seq.dir/depend
+	$(MAKE) -f CMakeFiles/seq.dir/build.make CMakeFiles/seq.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" --progress-num=5,6 "Built target seq"
+.PHONY : CMakeFiles/seq.dir/all
+
+# Include target in all.
+all: CMakeFiles/seq.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/seq.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/seq.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/krzys/Pulpit/zajecia/lab6/Ćwiczenie 3/build/CMakeFiles" 0
+.PHONY : CMakeFiles/seq.dir/rule
+
+# Convenience name for target.
+seq: CMakeFiles/seq.dir/rule
+
+.PHONY : seq
+
+# clean rule for target.
+CMakeFiles/seq.dir/clean:
+	$(MAKE) -f CMakeFiles/seq.dir/build.make CMakeFiles/seq.dir/clean
+.PHONY : CMakeFiles/seq.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/seq.dir/clean
 
 .PHONY : clean
 

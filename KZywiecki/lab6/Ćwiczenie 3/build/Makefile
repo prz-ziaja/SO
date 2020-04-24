@@ -111,44 +111,124 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named reader
+# Target rules for targets named pipe
 
 # Build rule for target.
-reader: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 reader
-.PHONY : reader
+pipe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pipe
+.PHONY : pipe
 
 # fast build rule for target.
-reader/fast:
-	$(MAKE) -f CMakeFiles/reader.dir/build.make CMakeFiles/reader.dir/build
-.PHONY : reader/fast
+pipe/fast:
+	$(MAKE) -f CMakeFiles/pipe.dir/build.make CMakeFiles/pipe.dir/build
+.PHONY : pipe/fast
 
-reader.o: reader.c.o
+#=============================================================================
+# Target rules for targets named read
 
-.PHONY : reader.o
+# Build rule for target.
+read: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 read
+.PHONY : read
+
+# fast build rule for target.
+read/fast:
+	$(MAKE) -f CMakeFiles/read.dir/build.make CMakeFiles/read.dir/build
+.PHONY : read/fast
+
+#=============================================================================
+# Target rules for targets named seq
+
+# Build rule for target.
+seq: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 seq
+.PHONY : seq
+
+# fast build rule for target.
+seq/fast:
+	$(MAKE) -f CMakeFiles/seq.dir/build.make CMakeFiles/seq.dir/build
+.PHONY : seq/fast
+
+pipe.o: pipe.c.o
+
+.PHONY : pipe.o
 
 # target to build an object file
-reader.c.o:
-	$(MAKE) -f CMakeFiles/reader.dir/build.make CMakeFiles/reader.dir/reader.c.o
-.PHONY : reader.c.o
+pipe.c.o:
+	$(MAKE) -f CMakeFiles/pipe.dir/build.make CMakeFiles/pipe.dir/pipe.c.o
+.PHONY : pipe.c.o
 
-reader.i: reader.c.i
+pipe.i: pipe.c.i
 
-.PHONY : reader.i
+.PHONY : pipe.i
 
 # target to preprocess a source file
-reader.c.i:
-	$(MAKE) -f CMakeFiles/reader.dir/build.make CMakeFiles/reader.dir/reader.c.i
-.PHONY : reader.c.i
+pipe.c.i:
+	$(MAKE) -f CMakeFiles/pipe.dir/build.make CMakeFiles/pipe.dir/pipe.c.i
+.PHONY : pipe.c.i
 
-reader.s: reader.c.s
+pipe.s: pipe.c.s
 
-.PHONY : reader.s
+.PHONY : pipe.s
 
 # target to generate assembly for a file
-reader.c.s:
-	$(MAKE) -f CMakeFiles/reader.dir/build.make CMakeFiles/reader.dir/reader.c.s
-.PHONY : reader.c.s
+pipe.c.s:
+	$(MAKE) -f CMakeFiles/pipe.dir/build.make CMakeFiles/pipe.dir/pipe.c.s
+.PHONY : pipe.c.s
+
+read.o: read.c.o
+
+.PHONY : read.o
+
+# target to build an object file
+read.c.o:
+	$(MAKE) -f CMakeFiles/read.dir/build.make CMakeFiles/read.dir/read.c.o
+.PHONY : read.c.o
+
+read.i: read.c.i
+
+.PHONY : read.i
+
+# target to preprocess a source file
+read.c.i:
+	$(MAKE) -f CMakeFiles/read.dir/build.make CMakeFiles/read.dir/read.c.i
+.PHONY : read.c.i
+
+read.s: read.c.s
+
+.PHONY : read.s
+
+# target to generate assembly for a file
+read.c.s:
+	$(MAKE) -f CMakeFiles/read.dir/build.make CMakeFiles/read.dir/read.c.s
+.PHONY : read.c.s
+
+seq.o: seq.c.o
+
+.PHONY : seq.o
+
+# target to build an object file
+seq.c.o:
+	$(MAKE) -f CMakeFiles/seq.dir/build.make CMakeFiles/seq.dir/seq.c.o
+.PHONY : seq.c.o
+
+seq.i: seq.c.i
+
+.PHONY : seq.i
+
+# target to preprocess a source file
+seq.c.i:
+	$(MAKE) -f CMakeFiles/seq.dir/build.make CMakeFiles/seq.dir/seq.c.i
+.PHONY : seq.c.i
+
+seq.s: seq.c.s
+
+.PHONY : seq.s
+
+# target to generate assembly for a file
+seq.c.s:
+	$(MAKE) -f CMakeFiles/seq.dir/build.make CMakeFiles/seq.dir/seq.c.s
+.PHONY : seq.c.s
 
 # Help Target
 help:
@@ -157,11 +237,19 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... reader"
 	@echo "... edit_cache"
-	@echo "... reader.o"
-	@echo "... reader.i"
-	@echo "... reader.s"
+	@echo "... pipe"
+	@echo "... read"
+	@echo "... seq"
+	@echo "... pipe.o"
+	@echo "... pipe.i"
+	@echo "... pipe.s"
+	@echo "... read.o"
+	@echo "... read.i"
+	@echo "... read.s"
+	@echo "... seq.o"
+	@echo "... seq.i"
+	@echo "... seq.s"
 .PHONY : help
 
 
