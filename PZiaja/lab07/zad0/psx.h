@@ -7,7 +7,7 @@
 #include <string.h>
 /* ------------------------------------------------------------- */
 
-#define MESSAGE_BUF_SIZE 10000
+#define MESSAGE_BUF_SIZE 8192
 #define PSX_QUEUE_NAME 100
 #define PERM_FILE S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH
 /* ------------------------------------------------------------- */

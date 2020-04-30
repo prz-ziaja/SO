@@ -279,6 +279,7 @@ read(ans, msg.data, 256);
   /* Cleaning up */
   close(fdsrv);
   close(fdsrv1);
+close(ans);
   unlink(fifosrvname);
   
   return 0;

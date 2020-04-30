@@ -33,7 +33,7 @@ int main(void)
   /* Opening server psx queue */
   printf("Opening server queue \'%s\' for reading...", srvpsxqname);
   mq_unlink(srvpsxqname);
-  qdsrv = mq_open(srvpsxqname, O_RDONLY | O_CREAT , PERM_FILE, NULL);
+  qdsrv = mq_open(srvpsxqname, O_RDONLY | O_CREAT, PERM_FILE, NULL);
   if(qdsrv == -1)
     {
       printf("FAIL!\nError: %s.\n", strerror(errno));
@@ -45,7 +45,7 @@ int main(void)
     {
       /* Reading from queue */
       printf("Waiting for data...\n");
-      bread = mq_receive(qdsrv, (char*)&msg, msgsize, NULL);
+      bread = mq_receive(qdsrv, (char*)&msg, msgsize, 8192);
       if(bread == -1)
 	{
 	  printf("FAIL!\nError: %s\n", strerror(errno));
@@ -72,7 +72,7 @@ int main(void)
 
       /* Sending responce */
       printf("OK\nWritting responce to client %ld...", (long)msg.pid);
-      bwrite = mq_send(qdcnt, (const char*)&msg, sizeof(msg), 0);
+      bwrite = mq_send(qdcnt, (const char*)&msg, sizeof(msg), 8192);
       if(bwrite == -1)
 	{
 	  printf("FAIL!\nError: %s\n", strerror(errno));

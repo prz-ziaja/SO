@@ -66,7 +66,7 @@ int main(void)
 
       /* Sending message */
       printf("Writting message...");
-      bwrite = mq_send(qdsrv, (const char*)&msg, sizeof(msg), 0);
+      bwrite = mq_send(qdsrv, (const char*)&msg, sizeof(msg), 8192);
       if(bwrite == -1)
 	{
 	  printf("FAIL!\nError: %s\n", strerror(errno));
@@ -76,7 +76,7 @@ int main(void)
 
       /* Reading from queue */
       printf("Waiting for data...\n");
-      bread = mq_receive(qdcnt, (char*)&msg, msgsize, NULL);
+      bread = mq_receive(qdcnt, (char*)&msg, msgsize, 8192);
       if(bread == -1)
 	{
 	  printf("FAIL!\nError: %s\n", strerror(errno));
