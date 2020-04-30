@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+
 #define MAX 100
 #define SHORT 10
 #define VERYSHORT 2
