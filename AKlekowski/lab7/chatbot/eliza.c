@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <fcntl.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include "fifo.h"
+
 #define MAX 100
 #define SHORT 10
 #define VERYSHORT 2
@@ -60,22 +68,21 @@ int in_topics(char *);
 /* creat the doctor's response */
 void respond (char *s)
 {
+    p_pos = s;
     char t[80];
     int loc;
     if (strlen(s)<VERYSHORT && strcmp(s,"bye"))  {
        if (find_topic(t))  {
-          printf ("You just said:");
-          printf ("%s\n",t);
-          printf ("tell me more .\n");
+          snprintf(s, MESSAGE_BUF_SIZE,"You just said:%s\ntell me more .\n",t);
        }
        else {
           if (!*response[res])  res=0;   /* start over again */
-          printf ("%s\n",response[res++]);
+           snprintf(s, MESSAGE_BUF_SIZE,"%s\n",response[res++]);
        }
        return ;
     }
     if (in_topics(s))  {
-       printf ("Stop repeating yourself !\n");
+       snprintf(s, MESSAGE_BUF_SIZE, "Stop repeating yourself !\n");
        return ;
     }
     if (strlen(s)>SHORT) assert_topic(s);
@@ -83,14 +90,14 @@ void respond (char *s)
        get_token();
        loc=lookup(token);
        if (loc!=-1)  {
-	  printf ("%s\n",trans[loc+1]);
+	   snprintf(s, MESSAGE_BUF_SIZE, "%s\n",trans[loc+1]);
           return ;
        }
     } while (*token);
     /* comment of last resort */
     if (strlen(s)>SHORT)
-       printf ("It's seem intersting , tell me more ...\n");
-    else printf ("Tell me more ...\n");
+        snprintf(s, MESSAGE_BUF_SIZE,"It's seem intersting , tell me more ...\n");
+    else  snprintf(s, MESSAGE_BUF_SIZE,"Tell me more ...\n");
 }
 
 /* Lookup a keyword in translation table  */
@@ -171,17 +178,88 @@ int is_in(char c, char *s)
     return 0;
 }
 
-int main (void)
+int main(void)
 {
-     char s[80];
-     printf ("%s\n",response[res++]);
-     do {
-        printf ("> ");
-        p_pos=s;
-        gets(s);
-        respond (s);
-     } while (strcmp(s,"bye"));
-     return 0;
+  struct message msg;
+  char* fifosrvbasename = "srvfifoqueue";
+  char fifosrvname[FIFO_NAME_BUF_SIZE];
+  char fifocntname[FIFO_NAME_BUF_SIZE];
+  int fdsrv,
+    fdcnt,
+    bread,
+    bwrite,
+    fdsrv1;
+  
+  printf("Server started...\n");
+  setbuf(stdout, NULL);
+
+  /* Creating server fifo queue */
+  make_srv_fifo_queue_name(fifosrvname, fifosrvbasename, FIFO_NAME_BUF_SIZE);
+  printf("Creating server fifo queue \'%s\'...", fifosrvname);
+  if((mkfifo(fifosrvname, PERM_FILE) == -1) && (errno != EEXIST))
+    {
+      printf("FAIL!\nError: %s\n", strerror(errno));
+      return 0;
+    }
+
+  /* Opening fifo */
+  printf("OK\nOpening server Eliza \'%s\' for reading...", fifosrvname);
+  fdsrv = open(fifosrvname, O_RDONLY| O_NONBLOCK);
+  fcntl(fdsrv, F_SETFL, fcntl(fdsrv, F_GETFL, 0) & ~O_NONBLOCK);
+  fdsrv1 = open(fifosrvname, O_WRONLY);
+  if(fdsrv == -1)
+    {
+      printf("FAIL!\nError: \'%s\'\n", strerror(errno));
+      return 0;
+    }
+  printf("OK\n");
+
+  while(1)
+    {
+      /* Reading from queue */
+      printf("Waiting for data...");
+      bread = read(fdsrv, &msg, sizeof(msg));
+      if(bread == -1)
+	{
+	  printf("FAIL!\nError: %s\n", strerror(errno));
+	  break;
+	}
+      printf("OK\n");
+
+      printf("Message from client [%d]: %s\n", msg.pid, msg.data);
+      printf("Your responce: ");
+      respond(msg.data);
+
+      /* Creating client fifo name  */
+      make_cnt_fifo_queue_name(fifocntname, msg.pid, FIFO_NAME_BUF_SIZE); 
+
+      /* Opening client fifo for writing  */
+      printf("Opening client fifo \'%s\' for writing...", fifocntname);
+      fdcnt = open(fifocntname, O_WRONLY);
+      if(fdcnt == -1)
+	{
+	  printf("FAIL!\nError: %s\n", strerror(errno));
+	  break;
+	}
+
+      /* Sending responce */
+      printf("OK\nWritting responce to client [%ld]...", (long)msg.pid);
+      bwrite = write(fdcnt, &msg, sizeof(msg));
+      if(bwrite == -1)
+	{
+	  printf("FAIL!\nError: %s\n", strerror(errno));
+	  break;
+	}
+      printf("OK\n");
+      close(fdcnt);
+    }
+  
+  /* Cleaning up */
+  close(fdsrv);
+  close(fdsrv1);
+  unlink(fifosrvname);
+  
+  return 0;
 }
 
 
