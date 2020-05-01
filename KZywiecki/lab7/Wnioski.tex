@@ -1,0 +1,33 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{times}
+
+\title{Laboratoria 7}
+
+\author{Krzysztof Żywiecki}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Wstęp}
+	
+	Podpunkt pierwszy nie został zrobiony
+	
+	Drugi podpunkt wymaga ustawienia odpowiedniej wielkości bufora do zapisu i odczytu z kolejki. Na moim systemie domyślnie ta wielkość wynosi 8192 bajty, czyli po uwzględnieniu zmiennej PID, wiadomość powinna zajmować 8188 bajtów.
+	
+	\section*{Ćwiczenie 1}
+	
+	Zadanie polega na przerobieniu programu eliza.c tak, żeby działał w trybie klient serwer. Wynikowy program został stworzony dzięki przerobieniu programu server tak, żeby nie czekał na input z terminala, a zamiast tego pobierał informacje z funkcji \emph{respond}. Efekt uzyskano dzięki stworzeniu globalnej zmiennej \emph{char buffer[MESSAGE\_BUFFER\_SIZE]} i zastąpieniu wszystkich instrukcji \emph{printf} instrukcjami \emph{strcat}. 
+	
+	\section*{Ćwiczenie 2}
+	
+	Nie zrobione 
+	
+	
+	
+\end{document}
