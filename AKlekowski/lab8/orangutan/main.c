@@ -1,12 +1,5 @@
 #include "line.h"
 
-/*
-  sem 0 - liczba orangutanow na linie 0-5
-  sem 1 - 
-
-*/
-
-
 int main(int argc, char* argv[]){
   int shmid, i;
   line* struktura;
