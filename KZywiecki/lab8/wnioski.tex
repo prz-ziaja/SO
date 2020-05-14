@@ -1,0 +1,28 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{times}
+
+\author{Krzysztof Żywiecki}
+\title{Laboratoria 8}
+
+\begin{document}
+	
+\maketitle
+
+\section*{Przykładowe programy}
+
+\subsection*{Program shm}
+
+Zadaniem tego programu jest tworzenie nowego procesu, który to z kolei tworzy swój proces potomny. Dwa ostatnie procesy posiadają wspólny blok pamięci w którym siedzą konta klientów. Proces rodzica co sekundę wypisuje sumę stanów kont, a proces potomny wykonuje przelewy. Po skompilowaniu i uruchomieniu programu okazuje się że suma stanów kont wyświetlana w konsoli nie ma sensu (jest albo ujemna albo bardzo duża, i ogólnie się bardzo waha między odczytami). Przyczyną takiego stanu rzeczy jest prawdopodobnie brak synchronizacji między procesami. Dodanie semafora który jest blokowany przez wyświetlanie albo przelewanie pieniędzy sprawiło że program wyświetla poprawne wyniki.
+
+\subsection*{Program sem}
+	
+Program ma taką samą funkcjonalność jak poprzedni. Również występuje podział na procesy, ale komunikacja między nimi jest zsynchronizowana za pomocą semaforów. 
+
+	
+	
+\end{document}
