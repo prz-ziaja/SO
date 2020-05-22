@@ -1,0 +1,37 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{times}
+
+\title{Laboratoria 9}
+\author{Krzysztof Żywiecki}
+
+\begin{document}
+
+\maketitle
+
+\section*{Wprowadzenie}
+
+Do sprawdzenia nazwy pliku terminala używamy polecenia \emph{tty}. Otrzymaną nazwę można podać jako argument polecenia \emph{stty}, i w ten sposób zmieniać działanie innego terminala.
+
+\subsection*{Morse-temp}
+
+W programie trzeba zmodyfikować program tak żeby \emph{read} nie czekało na nową linię, oraz żeby nie wyświetlał danych na wejściu. Żeby to osiągnąć, trzeba wyłączyć flagę \emph{ECHO}, która powoduje że konsola wypisuje wczytany z klawiatury przycisk, oraz flagę \emph{ICANON} która wyłącza tryb kanoniczny. Sprawia to że program nie czeka na znak nowej linii.
+
+\subsection*{Sessions}
+
+Użycie polecenia \emph{setsid} w procesie potomnym spowoduje utworzenie nowej sesji. Użycie polecenia w procesie rodzica rzuci błąd Operation Not Permitted.
+Żeby sprawdzić sid procesu możemy użyć \emph{ps -A -o 'pid,sess'}. Żeby odfiltrować wyniki możemy połączyć to z \emph{grep [ttf]}.
+
+\subsection*{Totolotek}
+
+Zadaniem programu jest stworzenie demona który wypisuje losowe liczby do pliku. Wystarczy do tego zmienić strumień wyjściowy w wątku potomnym. Potem możemy normalnie otworzyć plik i zapisywać do niego w zwyczajny sposób.
+
+\section*{Matrix}
+
+Program ma wykorzystywać bibliotekę \emph{ncurses} do wypisywania na ekranie spadających liter. Do tego celu stworzono dwa bufory zmiennych char, które przechowują zawartość ekranu, jeden do wyświetlania, drugi do operacji. Program najpierw kopiuje zawartość wyświetlonego bufora do bufora operacyjnego z przesunięciem o jedną linijkę w dół. Pusta teraz linijka jest uzupełniana losowymi znakami albo pustym miejscem. Bufory zamieniają się funkcjami i cykl się powtarza.
+
+\end{document}
