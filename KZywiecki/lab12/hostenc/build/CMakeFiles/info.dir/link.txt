@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/info.dir/hostinfo.c.o  -o info 

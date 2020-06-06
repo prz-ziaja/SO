@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/gethostbyname.dir/gethostbyname.c.o  -o gethostbyname 

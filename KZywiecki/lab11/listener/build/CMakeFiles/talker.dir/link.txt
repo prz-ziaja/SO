@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/talker.dir/talker.c.o  -o talker 

@@ -1,0 +1,28 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{anysize}
+\usepackage{listings}
+
+\title{Systemy Operacyjne\\
+	\Large{Laboratoria 11}}
+\author{Krzysztof Żywiecki}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Komunikacja bezpołączeniowa}
+	Komunikację bezpołączeniową nawiązuje się za pomocą protokołu UDP. Stosuje się ją w wypadkach gdy ważna jest szybkość przesyłu danych, ale niekoniecznie przejmujemy się tym czy przesłane informacje będą kompletne. Jednym z przykładów zastosowania takiej komunikacji jest streaming filmów, gdzie zgubienie jednej klatki nie jest dużym problemem.
+	
+	Mimo braku kontroli zapewnianej przez protokół, aplikacja może implementować mechanizmy do sprawdzania czy przesłane dane są kompletne. Protokół TFTP robi to tak, że zarówno klient jak i serwer komunikują się na temat przesyłu danych: po połączeniu do serwera i potwierdzeniu połączenia, klient wysyła numerowane pakiety danych, a serwer odpowiada potwierdzeniem otrzymania każdego numerowanego pakietu. 
+	
+	\section*{Broadcasting}
+	Z tego co zrozumiałem, aby wykonać broadcast trzeba wszystkie bity poza maską podsieci ustawić na 1, znaczy w sieci 200.200.200.0/24 adresem broadcast jest 200.200.200.255. Żeby zrobić broadcast do wszystkich użytkowników sieci LAN, możemy użyć adresu 255.255.255.255. Pamiętajmy że żeby zrobić broadcast, socket musi posiadać uprawnienia do broadcasta (SO\_BROADCAST)
+	
+\end{document}
+

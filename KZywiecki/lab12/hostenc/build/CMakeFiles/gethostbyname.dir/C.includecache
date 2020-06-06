@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/krzys/Pulpit/zajecia/lab12/hostenc/gethostbyname.c
+stdio.h
+-
+errno.h
+-
+netdb.h
+-
+unistd.h
+-
+netinet/in.h
+-
+

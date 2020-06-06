@@ -1,0 +1,5 @@
+/home/krzys/Pulpit/zajecia/lab12/hostenc/build/CMakeFiles/edit_cache.dir
+/home/krzys/Pulpit/zajecia/lab12/hostenc/build/CMakeFiles/info.dir
+/home/krzys/Pulpit/zajecia/lab12/hostenc/build/CMakeFiles/rebuild_cache.dir
+/home/krzys/Pulpit/zajecia/lab12/hostenc/build/CMakeFiles/showip.dir
+/home/krzys/Pulpit/zajecia/lab12/hostenc/build/CMakeFiles/gethostbyname.dir

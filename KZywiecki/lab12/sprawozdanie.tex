@@ -1,0 +1,71 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{anysize}
+\usepackage{listings}
+
+\title{Systemy Operacyjne\\
+	\Large{Laboratoria 12}}
+\author{Krzysztof Żywiecki}
+
+\newcommand{\entry}[2]{\item\emph{#1} - #2}
+\newcommand{\addrinfo}{\emph{addrinfo}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Hostent}
+
+Hostent jest strukturą zawierającą informacje na temat hosta, oczywiście.
+\begin{itemize}
+	\entry{h\_name}{nazwa hosta}
+	\entry{h\_aliases}{lista aliasów hosta}
+	\entry{h\_addrtype}{typ adresu}
+	\entry{h\_length}{długość adresu}
+	\entry{h\_addr\_list}{lista adresów}
+\end{itemize}
+Przedstawione informacje brane są z pliku \emph{/etc/hosts}.
+
+Program zadany w ćwiczeniu wypisuje hosty dostępne na urządzeniu z pomocą funkcji \emph{gethostent}. Wyjście tego programu jest podobne do zawartości pliku \emph{/etc/hosts}. Różnią się one tylko dwoma dodatkowymi wpisami w pliku, zapisanymi jako ipv6-allnodes, oraz ipv6-allrouters.
+
+Sprawdzanie błędów wygląda podobnie jak w innych funkcjach. Jedyną różnicą jest to że zamiast zmiennej \emph{errno} ustawiane jest \emph{h\_errno}. Z tego powodu nie można bezpośrednio użyć funkcji \emph{perror}, zamiast tego trzeba zrobić blok switch w którym wypiszemy odpowiedni do błędu komunikat.
+
+Żeby pobrać wszystkie adresy skorzystano z pola \emph{h\_addr\_list}, z którego po kolei zostały pobrane adresy. Dane były parsowane z użyciem już podanej pętli.
+
+\subsection*{Getaddrinfo}
+
+Funkcja \emph{getaddrinfo} zwraca liczbę całkowitą będącą komunikatem o błędzie, oraz strukturę \emph{addrinfo}. Funkcja przyjmuje nazwę hosta, nazwę serwisu, to znaczy numer portu, albo serwis typu ,,echo'', oraz strukturę ze wskazówkami \emph{addrinfo}.
+
+W strukturze \addrinfo~pole \emph{ai\_protocol} może przyjąć wartości http, ftp, albo telnet.
+
+Do sprawdzania błędów używamy zwracanej przez funkcję wartości i porównujemy ją z kodami błędów. Liczbę można też podać jako argument funkcji \emph{lwres\_gai\_strerror} żeby otrzymać wiadomość błędu, podobnie jak w funkcji \emph{strerror}
+
+Flagi AI\_PASSIVE możemy użyć żeby utworzyć socket który czeka na żądanie połączenia.
+
+Usługi oraz przypisane do nich porty znajdziemy w pliku \emph{/etc/services}
+
+Przechodząc do programu, korzystanie ze struktury \addrinfo~jest nieco wygodniejsze niż w wypadku \emph{hostent}. Adresy IP są połączone za pomocą pola \emph{ai\_next}, tworząc listę. 
+
+Żeby uzyskać nazwę kanoniczną hostów, trzeba odczytać pole \emph{ai\_canonname}. Żeby pole było ustawione, należy dodać flagę AI\_CANONNAME przy wywoływaniu funkcji \emph{getaddrinfo}.
+
+\section*{Funkcje dotyczące sieci}
+
+Funkcje set/get/endnetent przeszukują plik /etc/networks. 
+
+Wyświetlanie nazw sieci jest bardzo podobne do wyświetlania wartości \emph{hostinfo}. Korzystamy z setnetent, a następnie odczytujemy po kolei nazwy ze struktur netent.
+
+\section*{Usługi}
+
+Serwisy, jak wszystkie poprzednie funkcje, korzystają z dedykowanego pliku /etc/services. Również odczytywanie serwisów jest niezwykle proste i ogranicza się do wczytywaniu w pętli zwracanych wartości funkcji \emph{getsetvant}.
+
+\section*{Protokoły}
+JW
+\section*{Interfejsy}
+Wyszukiwanie interfejsów jest równie proste, ale zamiast wczytywać struktury sekwencyjnie, wczytujemy od razu tablicę danych.
+
+\end{document}

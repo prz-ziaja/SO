@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/showip.dir/showip.c.o  -o showip 

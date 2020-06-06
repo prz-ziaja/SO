@@ -1,0 +1,4 @@
+/home/krzys/Pulpit/zajecia/lab11/listener/build/CMakeFiles/edit_cache.dir
+/home/krzys/Pulpit/zajecia/lab11/listener/build/CMakeFiles/rebuild_cache.dir
+/home/krzys/Pulpit/zajecia/lab11/listener/build/CMakeFiles/listener.dir
+/home/krzys/Pulpit/zajecia/lab11/listener/build/CMakeFiles/talker.dir
